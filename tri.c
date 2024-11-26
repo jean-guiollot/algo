@@ -51,7 +51,7 @@ int tri_bulle_1(double t[], int n) {
       }
     }
   }
-  return -1;
+  return 0;
 }
 
 
