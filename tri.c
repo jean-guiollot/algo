@@ -61,8 +61,19 @@ int tri_bulle_1(double t[], int n) {
   des que le tableau est trie, on termine le programme
 */
 int tri_bulle_2(double t[], int n) {
+  int fini = 0;
+  while (fini == 0) {
+    fini = 1;
+    for (int i=0 ;i<n-1; i++) {
+      if (t[i+1]<t[i]) {
+        permute(&t[i+1],&t[i]);
+        fini = 0;
+      }
+    }
+    n = n-1;
+  }
     /* a ecrire, une fois ecrit modifiez le return -1 en return 0 */
-    return -1;
+    return 0;
 }
 
 
@@ -72,10 +83,24 @@ int tri_bulle_2(double t[], int n) {
 /********************************************
 *               TRI SELECTION               *
 ********************************************/
+int indicemax(double *t,int n) {
+  int p = 0;
+  for (int i=1; i<n; i++) {
+    if (t[i] > t[p]) {
+      p = i;
+    }
+  }
+  return p ;
+}
 
-int tri_selection(double *v, int n) {
+int tri_selection(double *t, int n) {
+  while (n>1) {
+    int p = indicemax(t,n);
+    permute(&t[p],&t[n-1]);
+    n = n-1;
+  }
     /* a ecrire, une fois ecrit modifiez le return -1 en return 0 */
-    return -1;
+    return 0;
 }
 
 
