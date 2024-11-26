@@ -39,15 +39,19 @@ int tri_echange(double t[], int n) {
 ********************************************/
 
 
-
-
 /*
   tri bulle de base : n-1 balayages 
   le balayage n°i ne compare que n-i couples 
 */
 int tri_bulle_1(double t[], int n) {
-    /* a ecrire, une fois ecrit modifiez le return -1 en return 0 */
-    return -1;
+  for (int b=1; b<n; b++) {
+    for (int i=0 ; i<n-b ;i++) {
+      if (t[i+1] < t[i]) {
+        permute(&t[i+1],&t[i]);
+      }
+    }
+  }
+  return -1;
 }
 
 
